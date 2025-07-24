@@ -39,10 +39,13 @@ class _NoteScreenState extends State<NoteScreen> {
                   descTxtCntrl.text.isNotEmpty) {
                 notes.add(
                   Note(
+                    id: DateTime.now().toIso8601String(),
                     title: titleTxtCntrl.text,
                     descreption: descTxtCntrl.text,
                   ),
                 );
+                titleTxtCntrl.clear();
+                descTxtCntrl.clear();
                 setState(() {});
               } else {}
             },
@@ -56,7 +59,10 @@ class _NoteScreenState extends State<NoteScreen> {
               itemBuilder: (context, index) => ListTile(
                 title: Text('${notes[index].title}'),
                 subtitle: Text('${notes[index].descreption}'),
-                trailing: Icon(Icons.delete),
+                trailing: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.delete),
+                ),
               ),
             ),
           ),
