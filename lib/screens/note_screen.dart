@@ -60,7 +60,10 @@ class _NoteScreenState extends State<NoteScreen> {
                 title: Text('${notes[index].title}'),
                 subtitle: Text('${notes[index].descreption}'),
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    notes.removeAt(index);
+                    setState(() {});
+                  },
                   icon: Icon(Icons.delete),
                 ),
               ),
